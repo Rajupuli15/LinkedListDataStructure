@@ -3,10 +3,9 @@ package com.bridgelabz.linkedlistdemo;
 /* linked list learing problem
  * create a node class and perform compute on the linked list
  */
-
-    public class MyNodeAppend {
-        Node head;
-        //create a node for the linked list
+    public class MyNodeDelete {
+        static Node head;
+    //create a node for the linked list
         static class Node{
             int data;
             Node next;
@@ -16,22 +15,33 @@ package com.bridgelabz.linkedlistdemo;
             }
         }
         // create the add method the give the value linked list
-        public void addNode(int data){
+        public void addNode(int data) {
             Node newNode = new Node(data);
             newNode.next = null;
-            if(this.head == null){
+            if (this.head == null) {
                 head = newNode;
             }
-            else{
+            else {
                 Node last = this.head;
-                while(last.next != null) {
+                while (last.next != null) {
                     last = last.next;
                 }
                 last.next = newNode;
             }
         }
+        //pop method  next node
+        public static void pop(){
+            Node temp =head;
+            if(head == null) {
+                System.out.println("linked list does not have data");
+            }
+            else {
+                head = head.next;
+            }
+        }
+
         //display the data to linked list
-        public void display(){
+        public static void display(){
             if(head == null){
                 System.out.println("linked list has no value");
             }
@@ -47,11 +57,17 @@ package com.bridgelabz.linkedlistdemo;
         public static void main(String args[]) {
             System.out.println("welcome to linked list");
             //create object and give to the method
-            MyNodeAppend linkedList = new MyNodeAppend();
-            linkedList.addNode(30);
+
+            MyNodeDelete linkedList = new MyNodeDelete();
             linkedList.addNode(56);
+            linkedList.addNode(30);
             linkedList.addNode(70);
-            linkedList.display();
+            display();
+            System.out.println("linked list data");
+            //pop method point the next node
+
+            linkedList.pop();
+            display();
 
         }
     }
