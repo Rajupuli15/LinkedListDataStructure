@@ -3,9 +3,9 @@ package com.bridgelabz.linkedlistdemo;
 /* linked list learning problem
  * create a node class and perform compute on the linked list
  */
-    public class MyNodeDelete {
+    public class MyNodeDeleteLastElement {
         static Node head;
-    //create a node for the linked list
+        //create a node for the linked list
         static class Node{
             int data;
             Node next;
@@ -29,15 +29,15 @@ package com.bridgelabz.linkedlistdemo;
                 last.next = newNode;
             }
         }
-        //pop method  next node
-        public static void pop(){
-            Node temp =head;
-            if(head == null) {
-                System.out.println("linked list does not have data");
-            }
-            else {
-                head = head.next;
-            }
+        //create pop method make second last node tail node
+
+        public  void popLastNode(){
+            Node node = head;
+            Node tail = head;
+            while( tail.next.next != null)
+                tail = tail.next;
+            tail.next = null;
+
         }
 
         //display the data to linked list
@@ -56,17 +56,15 @@ package com.bridgelabz.linkedlistdemo;
         }
         public static void main(String args[]) {
             System.out.println("welcome to linked list");
-            //create object and give to the method
-
-            MyNodeDelete linkedList = new MyNodeDelete();
+            //create obejct and give to the method
+            MyNodeDeleteLastElement linkedList = new MyNodeDeleteLastElement();
             linkedList.addNode(56);
             linkedList.addNode(30);
             linkedList.addNode(70);
             display();
             System.out.println("linked list data");
             //pop method point the next node
-
-            linkedList.pop();
+            linkedList.popLastNode();
             display();
 
         }
