@@ -1,23 +1,28 @@
 package com.bridgelabz.linkedlistdemo;
 
-public class MyNode<K> {
-    private K key;
-    private MyNode next;
+import jdk.dynalink.beans.StaticClass;
 
-    public MyNode(K key){
-        this.key = key;
-        this.next = null;
+/* linked list demo
+Create a node class on the linked list
+ */
+public class MyNode {
+    Node head;
+
+    // create a node for the linked list
+
+    static class Node{
+        int data;
+        Node next;
+        Node(int d){
+            data = d;
+            next = null;
+        }
     }
 
-    public MyNode getNext() {
-        return next;
-    }
-
-    public void setNext(MyNode next) {
-        this.next = next;
-    }
 
     public static void main(String[] args) {
         System.out.println("Welcome to Data Structure Problems");
+        MyNode linkedList = new MyNode();
+
     }
 }
